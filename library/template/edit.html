@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container bg-success">
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="InputTitle" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" value="{{book.title}}" id="InputTitle">
+    </div>
+
+    <div class="mb-3">
+        <label for="InputAuthor" class="form-label">Author</label>
+        <input type="text" class="form-control" name="author" value="{{book.author}}" id="InputAuthor">
+    </div>
+
+    <div class="mb-3">
+        <label for="InputLanguage" class="form-label">Language</label>
+        <input type="text" class="form-control" name="language" value="{{book.language}}" id="InputLanguage">
+    </div>
+
+    <div class="mb-3">
+        <label for="InputPages" class="form-label">Pages</label>
+        <input type="number" class="form-control" name="pages" value="{{book.pages}}" id="InputPages">
+    </div>
+
+    <div class="mb-3">
+        <label for="InputPrice" class="form-label">Price</label>
+        <input type="number" class="form-control" name="price" value="{{book.price}}" id="InputPrice">
+    </div>
+
+    <div class="mb-3">
+        <label for="InputCover" class="form-label">Image Cover</label>
+        <img src="{{book.cover.url}}" height="200px" width="200px">
+        <input type="file" class="form-control" name="cover" id="InputCover">
+    </div>
+
+    <div class="mb-3">
+        <label for="InputPDF" class="form-label">PDF</label>
+        <a href="{{book.pdf.url}}">{{book.pdf}}</a>
+        <input type="file" class="form-control" name="pdf" id="InputPDF">
+    </div>
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Confirm</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container w-50 mt-5 mb-5">
+  <h1 class="text-center mb-5" style="color:green">Add Products</h1>
+   <form method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+  <!-- Name input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="text" id="form2Example1" class="form-control" name="name" />
+    <label class="form-label" for="form2Example1">Name</label>
+  </div>
+
+  <!-- Password input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+      <textarea id="form2Example2" class="form-control" name="desc"></textarea>
+    <label class="form-label" for="form2Example2">Description</label>
+  </div>
+       <div data-mdb-input-init class="form-outline mb-4">
+    <input type="file" id="form2Example3" class="form-control" name="image" />
+    <label cls="form-label" for="form2Example3">Image</label>
+  </div>
+<div data-mdb-input-init class="form-outline mb-4">
+    <input type="number" id="form2Example5" class="form-control" name="price" />
+    <label class="form-label" for="form2Example5">Price</label>
+  </div>
+   <div data-mdb-input-init class="form-outline mb-4">
+    <input type="number" id="form2Example6" class="form-control" name="stock"/>
+    <label class="form-label" for="form2Example6">Stock</label>
+  </div>
+  <div class="form-check mb-4">
+        <label class="form-check-label" for="form2Example7">Available</label>
+  <input type="checkbox" id="form2Example7" class="form-check-input" name="available" checked />
+
+</div>
+
+  <label for="category">Category</label>
+
+        <select name="category" class="form-select" aria-label="Default select example" id="category">
+              <option selected>Open this select menu</option>
+             {% for i in links %}
+            <option value="{{i.id}}">{{i.name}}</option>
+              {% endfor %}
+        </select>
+
+  <!-- Submit button -->
+ <div class="container w-50 mt-5">
+     <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-block mb-4 ms-4">Submit</button>
+  <button  type="reset" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-block mb-4 ms-4">Reset</button>
+
+ </div>
+
+</form>
+</div>
+
+{% endblock %}
+

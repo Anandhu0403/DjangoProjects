@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container w-50 mb-5 mt-5" style="height:500px;">
+    <h1 class="text-center">Add Product Stock</h1>
+    <form method="post">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Add Stock</label>
+    <input type="number" class="form-control" name="stock" value="{{detail.stock}}" id="exampleInputEmail1">
+
+  </div>
+      <div class="mb-3 text-center">
+           <button type="submit" class="btn btn-success">Update stock</button>
+      </div>
+
+</form>
+</div>
+{% endblock %}
