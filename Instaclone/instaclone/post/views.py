@@ -99,5 +99,16 @@ def favorite(request,post_id):
         profile.favorite.add(post)
     return HttpResponseRedirect(reverse('post:post_detail',args=[post_id]))
 
+def delete_post(request,post_id):
+    post = get_object_or_404(Post, id=post_id)
+    context={'post':post}
 
+    # Check if the current user is the owner of the post
+    if post.user_id != request.user.id:
+        return redirect('post:index')  # Redirect if unauthorized
+
+    if request.method == 'POST':
+        post.delete()
+        return redirect('post:index')
+    return render(request,'deletepost.html',context)
 

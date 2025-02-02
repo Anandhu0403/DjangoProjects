@@ -25,4 +25,6 @@ urlpatterns = [
     path('<uuid:post_id>/like',views.Like,name="like"),
     path('tag/<slug:tag_slug>/',views.Tags,name="tags"),
     path('<uuid:post_id>/favorite',views.favorite,name="favorite"),
+    path('delete/<uuid:post_id>/', views.delete_post, name='delete_post'),
+
 ]
