@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/fc1e235b2e.js"></script>
+  <link rel="stylesheet" href="{% static 'assets2/style.css' %}">
+  <title>Socialhub | Login </title>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div class="container">
+
+      <div class="form-data">
+        <form action="{% url 'sign-in' %}" method="POST">{% csrf_token %}
+          <div class="logo">
+            <svg width="300" height="50" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Montserrat', sans-serif" font-size="70" fill="#000">
+    Socialhub
+  </text>
+</svg>
+          </div>
+          {{form}}
+          <button class="form-btn" type="submit">Log in</button>
+
+
+
+        </form>
+        <div class="sign-up">
+          Don't have an account? <a href="{% url 'sign-up' %}">Sign up</a>
+        </div>
+        <div class="get-the-app">
+          <span>Get the app.</span>
+          <div class="badges">
+                       <a href="https://apps.apple.com/us/app/instagram/id389801252"><img src="{% static 'assets2/images/app-store.png' %}" alt="app-store badge"></a>
+
+            <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=en_IN&pli=1"><img src="{% static 'assets2/images/google-play.png' %}" alt="google-play badge"></a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>
